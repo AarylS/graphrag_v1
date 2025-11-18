@@ -16,9 +16,7 @@ cypher_prompt = PromptTemplate(
     Use the following schema to generate a Cypher query that answers the given question.
     nodes have one property called id that holds the information and one label called Entity.
     cypher command type(relation) returns the  relationship type.
-    remember to check for direction of path.
     Make the query flexible by using case-insensitive matching and partial string matching where appropriate.
-    example: MATCH (n:Entity {id: 'info'}) - [r] -> () RETURN type(r) AS relType
     
     Schema:
     {schema}
