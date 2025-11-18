@@ -37,7 +37,7 @@ def set_gemini_llm():
 
     llm = GoogleGenAI(
         model="models/gemini-2.0-flash-lite",
-        api_key="AIzaSyAI8Y2AdONctNGb0GF8dAT1-pEWlIO0pd0",  # uses GOOGLE_API_KEY env var by default
+        api_key="",  # uses GOOGLE_API_KEY env var by default
     )
     Settings.llm = llm
 
