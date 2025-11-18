@@ -1,0 +1,10 @@
+parts in project.
+
+- data: stores docs  
+- source codes: contain all code
+- data processing and database setups: data preprocessing, setup databases connections
+- llm setup: connect andd setup llms to use
+- cli control of project: run the project through cli
+- langgraph: workflow of graphrag
+- langchain: the chains of llm intraction written
+- 

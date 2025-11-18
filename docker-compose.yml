@@ -1,0 +1,67 @@
+version: '3.8'
+
+name: graphrag_v2
+
+services:
+  weaviate:
+    command:
+    - --host
+    - 0.0.0.0
+    - --port
+    - '8080'
+    - --scheme
+    - http
+    image: cr.weaviate.io/semitechnologies/weaviate:1.33.4
+    container_name: weaviate
+    ports:
+    - 8080:8080
+    - 50051:50051
+    volumes:
+    - weaviate_data:/var/lib/weaviate
+    restart: unless-stopped
+    environment:
+      QUERY_DEFAULTS_LIMIT: 25
+      AUTHENTICATION_ANONYMOUS_ACCESS_ENABLED: 'true'
+      PERSISTENCE_DATA_PATH: '/var/lib/weaviate'
+      ENABLE_MODULES: 'text2vec-ollama,generative-ollama'
+      CLUSTER_HOSTNAME: 'node1'
+    networks:
+      - graphrag_v2
+
+  ollama:
+    image: ollama/ollama
+    container_name: ollama 
+    ports:
+      - "11434:11434"
+    volumes:
+      - ollama:/root/.ollama # Connects the volume to the container
+    restart: unless-stopped
+    networks:
+      - graphrag_v2
+
+  neo4j:
+    image: neo4j:latest
+    container_name: neo4j
+    ports:
+      - "7474:7474" # Neo4j Browser
+      - "7687:7687" # Bolt Protocol
+    volumes:
+      - neo4j_data:/data # Creates a new volume for the Neo4j database
+    environment:
+      - NEO4J_AUTH=neo4j/test1234 
+      - NEO4J_PLUGINS=["apoc"]
+      - NEO4J_dbms_security_procedures_unrestricted=apoc.*
+    restart: unless-stopped
+    networks:
+      - graphrag_v2
+
+networks:
+  graphrag_v2:
+    driver: bridge
+
+volumes:
+  weaviate_data:
+  neo4j_data:
+  ollama:
+    external: true 
+

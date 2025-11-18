@@ -1,0 +1,5 @@
+
+- get code to rea pdf, get the txt forom it.
+- set the chat models.
+- set weaviate db, neo4j db
+- 

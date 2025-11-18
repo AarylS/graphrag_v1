@@ -1,0 +1,6 @@
+here mention future improvments and addons
+
+1. streamlit web ui
+2. improve graph creation from data
+3. improved graph retriever
+4. 
