@@ -12,9 +12,11 @@ from llama_index.llms.ollama import Ollama
 from llama_index.llms.google_genai import GoogleGenAI
 from llama_index.core import VectorStoreIndex, PropertyGraphIndex, KnowledgeGraphIndex
 
+from src.config import ollama_model, ollama_embedding_model
+
 def set_ollama_embedding_model():
     ollama_embedding = OllamaEmbedding(
-        model_name="nomic-embed-text",
+        model_name=ollama_embedding_model,
         # model_name="llama3.2:1b",
         base_url="http://localhost:11434",
     )
@@ -24,7 +26,7 @@ def set_ollama_embedding_model():
 def set_ollama_llm():
     llm = Ollama(
         # model="llama3.2:latest",
-        model="llama3.2:1b",
+        model=ollama_model,
         # request_timeout=120.0,
         base_url="http://localhost:11434",
         context_window=512,

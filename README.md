@@ -13,30 +13,36 @@ this is required to run the project.
 
 ## installation
 
-1. Clone the repository  
+1. Clone the repository 
+
    -bash-
    git clone https://github.com/AarylS/graphrag_v1.git
    cd graphrag_v1
 
 2. create virtual environment
+
     -bash-
     uv venv .venv
     source .venv/bin/activate
 
 3. install dependencies
+
     -bash-
     uv pip install -r requirements.txt
 
 4. set docker container
+
     -bash-
     docker compose up -d
     [need to add ollama models download in ollama docker volumn]
 
-5. download ollama model, run command
+5. download ollama model and embedding model, run command
+
     -bash-
     docker ollama ollama pull model_name.
 
-    this model name must be added in the file graphrag_v1/src/database_setups/llamaindex_things.
+    this model name must be added in the file graphrag_v1/src/config.py.
+    add model name string at ollama_model and ollama_embedding_model variables.
 
 
 ## Usage
@@ -44,6 +50,7 @@ this is required to run the project.
 1. add the pdfs in the folder named data. 
 
 2. run the command below.
+
     -bash-
     uv run python main.py
 
@@ -56,6 +63,7 @@ this is required to run the project.
 
 4. to run grahrag on ingested data
     type n to the question. question is the same as below.
+
     -bash-
     [add the line that prints asking did you ingest data.]
 
