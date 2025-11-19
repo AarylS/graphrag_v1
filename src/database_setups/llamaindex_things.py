@@ -35,13 +35,13 @@ def set_ollama_llm():
 
 
 
-def set_gemini_llm():
+# def set_gemini_llm():
 
-    llm = GoogleGenAI(
-        model="models/gemini-2.0-flash-lite",
-        api_key="",  # uses GOOGLE_API_KEY env var by default
-    )
-    Settings.llm = llm
+#     llm = GoogleGenAI(
+#         model="models/gemini-2.0-flash-lite",
+#         api_key="",  # uses GOOGLE_API_KEY env var by default
+#     )
+#     Settings.llm = llm
 
 
 vector_store = WeaviateVectorStore(
