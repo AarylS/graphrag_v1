@@ -1,6 +1,6 @@
 version: '3.8'
 
-name: graphrag_v2
+name: graphrag
 
 services:
   weaviate:
