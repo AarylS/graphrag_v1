@@ -75,7 +75,7 @@ def get_retrievers():
     storage_context = StorageContext.from_defaults(
         # vector_store=vector_store,
         # graph_store=graph_store,
-        persist_dir="./storage_1"
+        persist_dir="./storage"
     )
 
     # vector_index = load_index_from_storage(
@@ -90,20 +90,20 @@ def get_retrievers():
 
     vector_index = VectorStoreIndex.from_vector_store(vector_store)
 
-    ollama_embedding = OllamaEmbedding(
-        model_name="nomic-embed-text",
-        # model_name="llama3.2:1b",
-        base_url="http://localhost:11434",
-    )
+    # ollama_embedding = OllamaEmbedding(
+    #     model_name="nomic-embed-text",
+    #     # model_name="llama3.2:1b",
+    #     base_url="http://localhost:11434",
+    # )
 
-    ollama_llm=Ollama(
-        # model="llama3.2:latest",
-        model="llama3.2:1b",
-        # request_timeout=120.0,
-        base_url="http://localhost:11434",
-        context_window=512,
-        temperature=0
-    )
+    # ollama_llm=Ollama(
+    #     # model="llama3.2:latest",
+    #     model="llama3.2:1b",
+    #     # request_timeout=120.0,
+    #     base_url="http://localhost:11434",
+    #     context_window=512,
+    #     temperature=0
+    # )
 
     # graph_index = PropertyGraphIndex.from_existing(
     #     property_graph_store=graph_store,

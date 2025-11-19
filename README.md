@@ -34,7 +34,6 @@ this is required to run the project.
 
     -bash-
     docker compose up -d
-    [need to add ollama models download in ollama docker volumn]
 
 5. download ollama model and embedding model, run command
 
@@ -42,7 +41,7 @@ this is required to run the project.
     docker ollama ollama pull model_name.
 
     this model name must be added in the file graphrag_v1/src/config.py.
-    add model name string at ollama_model and ollama_embedding_model variables.
+    add model_name string at ollama_model and ollama_embedding_model variables.
 
 
 ## Usage

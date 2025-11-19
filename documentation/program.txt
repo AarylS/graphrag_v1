@@ -1,0 +1,43 @@
+project structure:
+
+folders:
+1. data
+    contains the data to be used in graphrag.
+    this holds the pdfs.
+
+2. documentaion
+    contains explanations of the program.
+
+3. src
+    here is the code for the program 
+
+    - cli: 
+        main loop of the program.
+        runs the program in cli
+
+    - data_processing:
+        contains the pre processing and data ingestion functions.
+
+    - database_setups:
+        contains code to setup and connect the database providers used.
+        contains setup of llamaindex.
+
+    - langchain_things:
+        contains the langchain chains used in the program workflow.
+
+    - langgraph_things:
+        contains the langgraph nodes and worflow structure used in the program.
+
+    - model_setups:
+        loading of llm models and embeddings used in program.
+
+    - config.py file
+        contains the changeable variables for the program
+
+4. storage
+    llamaindex store - storage_context
+
+
+program flow    
+
+
