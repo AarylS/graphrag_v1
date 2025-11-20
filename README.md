@@ -65,19 +65,21 @@ this is required to run the project.
    
     -bash-
 
-   [add the line that prints asking did you ingest data.]
+    have you added data to data folder and processed it? (y/n):
 
     the program will run the graphrag after ingestion is completed.
 
 6. to run grahrag on ingested data
-    type n to the question. question is the same as below.
+    type y to the question. question is the same as below.
 
     -bash-
    
-    [add the line that prints asking did you ingest data.]
+    have you added data to data folder and processed it? (y/n):
 
 8. type your question when prompted to type the question, 
 
 9. the graphrag runs.
 
 
+if required:
+uv pip install llama-index llama-index-llms-ollama llama-index-embeddings-ollama langchain langgraph langchain-ollama langchain-neo4j langchain-weaviate llama-index-graph-stores-neo4j llama-index-vector-stores-weaviate neo4j weaviate-client ollama

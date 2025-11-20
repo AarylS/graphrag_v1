@@ -6,7 +6,7 @@ here the processed data is stored into vector and graph dataabase
 """
 from src.config import file_path
 from src.data_processes.data_processing import chunk_data
-from src.database_setups.llamaindex_things import set_ollama_embedding_model, set_ollama_llm, set_gemini_llm
+from src.database_setups.llamaindex_things import set_ollama_embedding_model, set_ollama_llm
 from src.database_setups.llamaindex_things import vector_store, graph_store, clear_vectordb
 from llama_index.core.indices.property_graph import SchemaLLMPathExtractor
 from llama_index.core import VectorStoreIndex, PropertyGraphIndex, KnowledgeGraphIndex

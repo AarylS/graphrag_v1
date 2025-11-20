@@ -1,0 +1,5 @@
+the working of the project.
+
+remember to store the pdfs required for graphrag in the folder named data.
+
+The project starts with running the following command: uv run python main.py

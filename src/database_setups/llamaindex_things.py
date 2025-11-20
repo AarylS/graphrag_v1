@@ -9,7 +9,6 @@ from llama_index.embeddings.ollama import OllamaEmbedding
 from llama_index.core import Settings
 from llama_index.core import StorageContext, load_index_from_storage
 from llama_index.llms.ollama import Ollama
-from llama_index.llms.google_genai import GoogleGenAI
 from llama_index.core import VectorStoreIndex, PropertyGraphIndex, KnowledgeGraphIndex
 
 from src.config import ollama_model, ollama_embedding_model
