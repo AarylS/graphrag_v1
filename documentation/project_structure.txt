@@ -1,35 +1,78 @@
 project structure:
 
-folders:
+project folders:
 1. data
     contains the data to be used in graphrag.
     this holds the pdfs.
 
 2. documentaion
     contains explanations of the program.
+    files:
+        - future.txt: contains plans for the projct.
+        - project_flow.txt: explains the working of the project
+        - project_run.txt: explain how to run the project
+        - project_structure.txt: explains the folders and file structure of project
 
 3. src
-    here is the code for the program 
+    contains the code for the program 
 
     - cli: 
         main loop of the program.
         runs the program in cli
+        files:
+            - main.py: contains the cli interaction with user and runs the graphrag workflow loop.
 
     - data_processing:
         contains the pre processing and data ingestion functions.
+        files:
+            - data_ingestion.py: functions to ingest and save the data in vector and graph database.
+            - data_processing.py: functions that preprocess and chunk input data.
 
     - database_setups:
         contains code to setup and connect the database providers used.
         contains setup of llamaindex.
+        files:
+            - llamaindex_things.py: llamaindex wrapper over the vector and graph database connections, also has vector retriever function.
+            - neo4j.py: connect to graph database, neo4j. Provides neo4j client
+            - weaviatedb.py: connect to vector database, weaviate. Provides weaviate client
 
     - langchain_things:
         contains the langchain chains used in the program workflow.
+        files:
+            - answer_generator_graph.py: chain that generate answer based on context retrieved by graphrag (vector and graph)
+            - answer_generator.py: chain that generate answer based on context retrieved by rag (vector)
+            - answer_grader.py: chain that grades if the generated answer does answer the asked question
+            - graph_retriever_generation.py: contains the graph retriever from neo4j's "GraphCypherQAChain" function
+            - hallucination_grader.py: chain that checks generated answer for hallucinations by comparing context and generated answer.
+            - question_enhancer.py: chain that rephrases the question.
+            - retriver_vector_grader.py: chain that grades if context retriever from vector database is relavent or not.
+            - router.py: chain that routes the question to rag or graphrag.
 
     - langgraph_things:
         contains the langgraph nodes and worflow structure used in the program.
 
+        - nodes:
+            here the code for the langgraph nodes are stored.
+            file: 
+                - answer_generator_graph.py: node that provides retrieved context to the answer_generator_graph chain.
+                - answer_generator_vector.py: node that provides retrieved context to the answer_generator chain.
+                - decide_enhance_question.py: function that decides if question enhancer is required by workflow.
+                - enhance_qustion.py: node that runs the question_enhancer chain
+                - grade_hallucination.py: function that decides if generated answer is not hallucinating and answer is accurate, by calling the hallucination_grader chain and answer_grader chain.
+                - grade_vector_context.py: node that gradeds if the vector context retrieved is related to question asked, removes context if not relavent. calls the retriver_vector_grader chain
+                - question_router.py: function that roues the question by calling the router chain.
+                - retrieve_graph.py: calls the vector retrieve and graph retriever and stores the contexts.
+                - retrieve_vector.py: calls the vector retrieve and stores the contexts.
+
+        files:
+            - graph_state_init.py: contains the initial state for the GraphState used by langgraph workflow. this stores all data/info used by the workflow.
+            - workflow.py: contains the workflow of graphrag 
+
     - model_setups:
         loading of llm models and embeddings used in program.
+        files:
+            - ollama_embedding_model.py: function that returns the embedding model used in vector database
+            - ollama_model.py: function that returns the LLM used in generations.
 
     - config.py file
         contains the changeable variables for the program

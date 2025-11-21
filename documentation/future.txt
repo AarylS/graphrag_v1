@@ -1,0 +1,14 @@
+future plans for the project.
+
+- refactor the code base.
+- improve preprocessing of data
+    make it clean more types of input documents and other extensions.
+- find/build better graph details extractor from chunks.
+- find/build a better graph retriever.
+- the graphrag retrieved vector context must be sent to the context grader to check if relaven or not.
+- imporve the question enhancer node and chain.
+- need to check and fix loop conditions in langgraph workflow.
+
+- add a user interface for the application/project. (streamlit)
+- dynamic data ingestion.
+    graphrag should be able to run on every changing inputs.

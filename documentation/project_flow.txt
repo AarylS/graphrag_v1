@@ -1,5 +1,53 @@
-the working of the project.
+the steps in the program.
 
-remember to store the pdfs required for graphrag in the folder named data.
+the program consists of two parts: ingestion and graphrag.
 
-The project starts with running the following command: uv run python main.py
+Ingestion:
+
+1. pdfs in data are loaded into a document object using "SimpleDirectoryReader".
+
+2. preprocessing is done on the text of the document object.
+    here the text are made into the proper format. i.e, fixing the spacing between characters and words, removing special characters like \n, \s, etc
+
+3. chunking the preprocessed data.
+    dividing the data into smaller parts.
+
+4. save the chunked data as embeddings in a vector database.
+
+5. from chunked data extract the entities and relations and save them in a graph database.
+
+6. save the above.
+
+Graphrag:
+
+1. first you have to enter the question when prompted to.
+    the question is then passed to the router.
+
+2. router
+    the question is the passed to the retriever.
+    this  decides which process to use, vector retriever(rag) or vector and graph retriever(graphrag)
+
+3. retirever - rag or graphrag.
+    based on router decision, either rag or graphrag is selected. its retriever is then called to pull the respective context from the databases.
+
+4. context grader
+    for context extracted from vector database, it need to verified that the context retrieved is related and relavent to the question asked.
+    if not context is relavent then the flow is sent to the question enhancer.
+
+5. question enhancer
+    this rephrases the question to help with the context extractor.
+    this then sends the rephrased question into the graphrag retriever.
+
+6. answer generator
+    once context is retrieved and grader, the answer generator is called.
+    here the llm generates the answer with the context providedd by the retierver.
+    this means the answer generated is grounded with facts making the answer generated accurate.
+
+7. hallucination and answer grader
+    grade hallucination checks if the answer generated is grounded with the context provided and has not hallucinated.
+    if the answer generated has not hallucinated then the answer grader is called.
+    answer grader checks if the answer generated actually answers the question asked by the user. i.e, answer generated does answer the question asked
+    if the answer generated has passed the graders check then the answer is returned to the user.
+
+    if the answer generated fails to pass any of the two checks(hallucination and answer grader) then the flow is sent to the question enhancer.
+    the flow resumes from the question enhancer.

@@ -1,0 +1,28 @@
+the execution of the project.
+
+for explaination of code read the code.txt file.
+for explaination of project read the project_flow.txt file
+
+1. follow the instruction on the readme file. 
+    remember to store the pdfs required for graphrag in the folder named data.
+
+2. The project starts with running the following command: uv run python main.py
+
+3. you will be prompted "have you added data to data folder and processed it? (y/n):"
+
+    if you have not ingested the data, i.e. processed the data and saved it into databases using the program 
+    then enter "n" in the terminal.
+    it will look like this: "have you added data to data folder and processed it? (y/n):n"
+    clicking enter will start the ingestion process.
+
+    the graphrag process will run after the ingestion is complete.
+
+4. if you have already run the ingestion part of the program then you can type "y" when prompted:
+    "have you added data to data folder and processed it? (y/n):y"
+    then the graphrag process will begin.
+
+5. at the next prompt: "Enter your Question: "
+    type you question, click enter key to run the question/query.
+
+6. the program runs in a loop untill you exit the program by typing "quit" or "q" when prompted to "enter the question"
+
