@@ -62,6 +62,7 @@ def run():
                 except Exception as e:
                     st.error(f"An error occurred: {str(e)}")
                     status.update(label="Error", state="error")
+  
             
             # printing answer
             if final_answer:
