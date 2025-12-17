@@ -5,12 +5,13 @@ graphrag
 
 """
 
-# from src.cli.main import main
-from src.streamlit.app import run
+# from src.cli._cli import main
+# from src.streamlit.app import run
+from src.cli.main_testing import main
 
 if __name__ == "__main__":
-    # main()
-    run()
+    main()
+    # run()
 
 
 # # testing ingestion
